@@ -1,0 +1,79 @@
+<html>
+<head>
+<title> Login Form</title>
+<script>
+     function validate()
+    {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        var loginlist = { "User": {
+                                "userlist":[{"username":"usr1", "password":"a123"},{"username":"usr2", "password":"a123"},{"username":"usr3", "password":"a123"}],
+                                "ID":1
+                            },  
+                            "Admin": {
+                                    "adminlist":[{"username":"admin1", "password":"b123"},{"username":"admin2", "password":"b123"},{"username":"admin3", "password":"b123"}],
+                                    "ID":2
+                            },  
+                            "Supplier": {
+                                    "supplierlist":[{"username":"sup1", "password":"c123"},{"username":"sup2", "password":"c123"},{"username":"sup3", "password":"c123"}],
+                                    "ID":1
+                            }   
+        };
+        var logged = false;
+        if(loginlist[0].User.ID === 1){
+            for(var i =0; i < loginlist[0].User.userlist.length; i++){
+                if(username == loginlist[0].User.userlist[i].username && password == loginlist[0].User.userlist[i].password){
+                    logged= true;
+                }
+            }
+            if(logged)
+            alert("User login");
+
+            else
+            alert("User login fail");               
+
+        }
+        else if(loginlist[0].Admin.ID === 2){
+            for(var j =0; j < loginlist[0].Admin.adminlist.length; j++){
+                if(username == loginlist[0].Admin.adminlist[j].username && password == loginlist[0].Admin.adminlist[j].password){
+                    logged= true;
+                }
+            }
+            if(logged)
+            alert("Admin login");
+
+            else
+            alert("admin login fail");
+
+        }
+        else{
+            for(var k =0; k < loginlist[0].Supplier.supplierlist.length; k++){
+                if(username == loginlist[0].Supplier.supplierlist[k].username && password == loginlist[0].Supplier.supplierlist[k].password){
+                    logged= true;
+                }
+            }
+            if(logged)
+            alert("Supplier login");
+
+            else
+            alert("supplier login fail");
+
+        }
+    }
+</script>
+</head>
+<body>
+<div class="container">
+<div class="main">
+<h2>Login Form</h2>
+<form id="form_id" method="post" name="myform">
+<label>User Name :</label>
+<input type="text" placeholder="Enter username" name="username" id="username"/>
+<label>Password :</label>
+<input type="password" placeholder="Enter Password" name="password" id="password"/>
+<input type="button" value="Login" id="submit" onclick="validate()"/>
+</form>
+    </div>
+    </div>
+</body>
+</html>
